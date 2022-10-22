@@ -8,7 +8,6 @@ trait Bite {
     fn bite(self: &mut Self);
 }
 
-
 // 2. Now create a struct named Grapes with a field that tracks how many grapes are left.  If you
 // need a hint, look at how it was done for Carrot at the bottom of this file (you should probably
 // use a different field, though).
@@ -18,20 +17,18 @@ struct Grapes {
     amount_left: i32,
 }
 
-
-
 // 3. Implement Bite for Grapes.  When you bite a Grapes, subtract 1 from how many grapes are left.
 // If you need a hint, look at how it was done for Carrot at the bottom of this file.
 //
 // impl Bite for...
 
 impl Bite for Grapes {
-    fn bite(self: &mut Self){ 
+    fn bite(self: &mut Self) {
         self.amount_left = self.amount_left - 1;
     }
 }
 
-fn bunny_nibbles<T: Bite>(b :&mut T) {
+fn bunny_nibbles<T: Bite>(b: &mut T) {
     b.bite();
     b.bite();
     b.bite();
@@ -40,7 +37,9 @@ fn bunny_nibbles<T: Bite>(b :&mut T) {
 
 fn main() {
     // Once you finish #1 above, this part should work.
-    let mut carrot = Carrot { percent_left: 100.0 };
+    let mut carrot = Carrot {
+        percent_left: 100.0,
+    };
     carrot.bite();
     println!("I take a bite: {:?}", carrot);
 
